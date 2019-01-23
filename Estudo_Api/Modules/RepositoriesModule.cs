@@ -13,7 +13,7 @@ namespace Estudo_Api.Modules
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<DataRepository>().Named<IRepository>("DataRepository");
+            builder.RegisterType<StringsRepository>().Named<IRepository>("DataRepository");
             builder.Register(c => new Repository(c.ResolveNamed<IRepository>("DataRepository"))).Named<IRepository>("Repository");
         }
     }

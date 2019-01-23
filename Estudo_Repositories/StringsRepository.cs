@@ -7,16 +7,22 @@ using System.Threading.Tasks;
 
 namespace Estudo_Repositories
 {
-    public class DataRepository : IRepository
+    public class StringsRepository : IRepository
     {
         public T GetAll<T>()
         {
-            return default(T);
+            List<string> allValues = new List<string>();
+            allValues.Add("Otavio");
+            allValues.Add("Lopes");
+            allValues.Add("Teste");
+
+            return (T)Convert.ChangeType(allValues, typeof(T));
         }
 
         public T GetById<T>(int id)
         {
-            throw new NotImplementedException();
+            var value = $"Retorna o dado de Id: {id}";
+            return (T)Convert.ChangeType(value, typeof(T));
         }
 
         public void Set<T>(T t)
